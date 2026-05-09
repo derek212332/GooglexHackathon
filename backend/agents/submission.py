@@ -17,7 +17,8 @@ from integrations.whatsapp import WhatsAppIntegration
 
 logger = logging.getLogger("nammacity.agents.submission")
 
-MILESTONES = {1, 3, 5, 10, 25, 50}
+# Every size is a milestone — always send email for demo
+MILESTONES = set(range(1, 100))
 
 twitter_client = TwitterIntegration()
 gmail_client = GmailIntegration()
