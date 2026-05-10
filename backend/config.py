@@ -14,11 +14,10 @@ class Settings(BaseSettings):
     qdrant_url: str = ""
     qdrant_api_key: str = ""
 
-    # Twitter
-    twitter_api_key: str = ""
-    twitter_api_secret: str = ""
-    twitter_access_token: str = ""
-    twitter_access_token_secret: str = ""
+    # Twitter (twikit cookies)
+    twitter_username: str = ""
+    twitter_auth_token: str = ""
+    twitter_ct0: str = ""
 
     # Gmail
     gmail_user: str = ""

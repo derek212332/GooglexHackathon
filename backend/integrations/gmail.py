@@ -126,10 +126,8 @@ class GmailIntegration:
         if bcc:
             all_recipients.extend([bcc] if isinstance(bcc, str) else bcc)
 
-        with smtplib.SMTP("smtp.gmail.com", 587, timeout=10) as smtp:
-            smtp.ehlo()
-            smtp.starttls()
-            smtp.ehlo()
+        # Use SSL on port 465 (works on Railway/Docker where port 587 is blocked)
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=10) as smtp:
             smtp.login(username, password)
             smtp.sendmail(username, all_recipients, msg.as_string())
 
